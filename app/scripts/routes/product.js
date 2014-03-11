@@ -3,3 +3,5 @@ App.ProductRoute = Ember.Route.extend({
     return this.store.find("product", params.product_id)
   }
 });
+
+
