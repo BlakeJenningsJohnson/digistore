@@ -2,5 +2,9 @@
  <h3>All Items</h3>
     <div class="row">
       {{# each items }}
-          <h4>{{ this.product.name }}</h4>
-      {{/ each}}
+        <ul>
+          <li><h4>{{ this.product.name }}</h4></li>
+          <li><img {{ bind-attr src=this.product.avatar }} class='thumbnail'></li>
+        </ul>
+    {{/ each}}
+
