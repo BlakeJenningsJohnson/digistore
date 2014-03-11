@@ -3,24 +3,25 @@ App.Product = DS.Model.extend({
   description: DS.attr("string"),
   avatar: DS.attr("string"),
   image: DS.attr("string"),
-  price: DS.attr('number')
+  price: DS.attr('number'),
+  item: DS.belongsTo("item", {async: true})
 });
 
 App.Product.FIXTURES = [
   {
     id: 1,
-    name: "ToothBrusherApp",
-    description: "This handy app gives the illusion that you're brushing your teeth instead of browsing Twitter",
-    image: "http://upload.wikimedia.org/wikipedia/commons/1/16/Toothbrush_toothbrush.JPG",
-    avatar: "http://psysc613.wikispaces.com/file/view/smarmy-sales-man.jpg/248490699/smarmy-sales-man.jpg",
+    name: "ImaginaryPet",
+    description: "Everyone needs something to snuggle and clean up after",
+    image: "http://placekitten.com/800/600",
+    avatar: "http://placekitten.com/50/50",
     price: "200000"
   }, 
   {
     id: 2,
-    name: "Friend",
-    description: "Here are some cool digital people to chill with in their giant loft",
-    image: "http://mediasociety.drshellyblair.com/wp-content/uploads/2013/11/friends-tv-show-wallpapers-1280x1024.jpg",
-    avatar: "http://psysc613.wikispaces.com/file/view/smarmy-sales-man.jpg/248490699/smarmy-sales-man.jpg",
+    name: "ImaginaryFriend",
+    description: "You know you want him to come hang out",
+    image: "http://fillmurray.com/g/800/600",
+    avatar: "http://fillmurray.com/g/50/50",
     price: "200000"
   }
-]
+];
