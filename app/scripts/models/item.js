@@ -12,6 +12,6 @@ App.Item.FIXTURES = [
   {
     id: 2,
     product: 2,
-    quantity: 2
+    quantity: 1
   }
 ];

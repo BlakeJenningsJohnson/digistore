@@ -4,7 +4,13 @@
       {{# each items }}
         <ul>
           <li><h4>{{ this.product.name }}</h4></li>
+          <li><h4>{{ this.quantity }}</h4></li>
+
           <li><img {{ bind-attr src=this.product.avatar }} class='thumbnail'></li>
+          <button {{ action "more" this }}>+</button>
+          <button {{ action "less" this }}>-</button>
+<!--           <p>Price: ${{ format-price this.product.price }}</p>
+          <p>Subtotal: ${{ subtotal(this.product.price, this.quantity) }} -->
         </ul>
     {{/ each}}
 
