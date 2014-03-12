@@ -49,7 +49,9 @@ function program1(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n          <tr>\n            <td></td>\n            <td></td>\n            <td></td>\n            <td>Total:</td>\n            <td>$");
   data.buffer.push(escapeExpression((helper = helpers['format-price'] || (depth0 && depth0['format-price']),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "total", options) : helperMissing.call(depth0, "format-price", "total", options))));
-  data.buffer.push("</td>\n          </tr>\n\n\n        </tbody>\n      </table>\n    </div>");
+  data.buffer.push("</td>\n          </tr>\n        </tbody>\n      </table>\n\n      <button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "checkout", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
+  data.buffer.push(">Checkout</button>\n    </div>");
   return buffer;
   
 });
@@ -61,6 +63,16 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push("<h1>Welcome Home</h1>");
+  
+});
+
+Ember.TEMPLATES["order"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  
+
+
+  data.buffer.push("<h1>I\"M AN ORDER</h1>");
   
 });
 
