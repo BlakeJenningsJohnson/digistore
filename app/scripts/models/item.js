@@ -1,6 +1,9 @@
 App.Item = DS.Model.extend({
   quantity: DS.attr("number"),
-  product: DS.belongsTo('product', {async: true })
+  product: DS.belongsTo('product', {async: true }),
+  subtotal: function(){
+    return (this.get('quantity') * this.get('product').get('price'))
+  }.property('quantity', 'this.product.price')
 });
 
 App.Item.FIXTURES = [

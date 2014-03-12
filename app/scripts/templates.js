@@ -15,7 +15,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 Ember.TEMPLATES["cart"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+  var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
 
 function program1(depth0,data) {
   
@@ -37,15 +37,17 @@ function program1(depth0,data) {
   data.buffer.push(">+</button>\n              <button ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "less", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
   data.buffer.push(">-</button>\n            </td>\n            <td>$");
-  data.buffer.push(escapeExpression((helper = helpers.subtotal || (depth0 && depth0.subtotal),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["ID","ID"],data:data},helper ? helper.call(depth0, "quantity", "product.price", options) : helperMissing.call(depth0, "subtotal", "quantity", "product.price", options))));
-  data.buffer.push("</td>\n          </tr>\n          ");
+  data.buffer.push(escapeExpression((helper = helpers['format-price'] || (depth0 && depth0['format-price']),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "subtotal", options) : helperMissing.call(depth0, "format-price", "subtotal", options))));
+  data.buffer.push("</td>\n          </tr>\n           ");
   return buffer;
   }
 
   data.buffer.push("<h1>Cart</h1>\n  <div class=\"table-responsive\">\n    <table class=\"table table-bordered\">\n      ");
   stack1 = helpers.each.call(depth0, "items", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n        </tbody>\n      </table>\n    </div>");
+  data.buffer.push("\n          Total: $");
+  data.buffer.push(escapeExpression((helper = helpers['format-price'] || (depth0 && depth0['format-price']),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "total", options) : helperMissing.call(depth0, "format-price", "total", options))));
+  data.buffer.push("\n\n        </tbody>\n      </table>\n    </div>");
   return buffer;
   
 });
