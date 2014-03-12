@@ -8,7 +8,7 @@
           <img {{ bind-attr src=avatar }} class='thumbnail' />
           {{/ link-to }}
           <strong><p>${{ price }}</p></strong>
-          <button href="#addcart" {{action "addToCart" this }}>Add To Cart</button>
+          <button {{action "addToCart" this }}>Add To Cart</button>
         </div>
       {{/ each}}
   <div class='col-lg-10'>

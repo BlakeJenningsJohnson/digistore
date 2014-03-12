@@ -1,8 +1,4 @@
 App.Cart = DS.Model.extend({
-  // deleteItem: function (item) {
-  //   item.deleteRecord()
-  //   item.save() #how will it find this item?
-  // }
   items: DS.hasMany('item', {async: true} ),
   total: function(){
     var items = this.get('items');

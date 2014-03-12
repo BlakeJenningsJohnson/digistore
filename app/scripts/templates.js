@@ -38,11 +38,13 @@ function program1(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "less", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
   data.buffer.push(">-</button>\n            </td>\n            <td>$");
   data.buffer.push(escapeExpression((helper = helpers['format-price'] || (depth0 && depth0['format-price']),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "subtotal", options) : helperMissing.call(depth0, "format-price", "subtotal", options))));
-  data.buffer.push("</td>\n          </tr>\n           ");
+  data.buffer.push("</td>\n            <td><button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "deleteItem", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
+  data.buffer.push(">Remove</button>\n          </tr>\n           ");
   return buffer;
   }
 
-  data.buffer.push("<h1>Cart</h1>\n  <div class=\"table-responsive\">\n    <table class=\"table table-bordered\">\n        <thead>\n          <tr>\n            <th>Product</th>\n            <th></th>\n            <th>Price</th>\n            <th>Quantity</th>\n            <th>Subtotal</th>\n          </tr>\n        </thead>\n          ");
+  data.buffer.push("<h1>Cart</h1>\n  <div class=\"table-responsive\">\n    <table class=\"table table-bordered\">\n        <thead>\n          <tr>\n            <th>Product</th>\n            <th></th>\n            <th>Price</th>\n            <th>Quantity</th>\n            <th>Subtotal</th>\n            <th></th>\n          </tr>\n        </thead>\n          ");
   stack1 = helpers.each.call(depth0, "items", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n          <tr>\n            <td></td>\n            <td></td>\n            <td></td>\n            <td>Total:</td>\n            <td>$");
@@ -100,7 +102,7 @@ function program1(depth0,data) {
   data.buffer.push("\n          <strong><p>$");
   stack1 = helpers._triageMustache.call(depth0, "price", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</p></strong>\n          <button href=\"#addcart\" ");
+  data.buffer.push("</p></strong>\n          <button ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "addToCart", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
   data.buffer.push(">Add To Cart</button>\n        </div>\n      ");
   return buffer;

@@ -8,6 +8,7 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Subtotal</th>
+            <th></th>
           </tr>
         </thead>
           {{# each items }}
@@ -22,6 +23,7 @@
               <button {{ action "less" this }}>-</button>
             </td>
             <td>${{ format-price subtotal }}</td>
+            <td><button {{ action "deleteItem" this }}>Remove</button>
           </tr>
            {{/ each }}
           <tr>
