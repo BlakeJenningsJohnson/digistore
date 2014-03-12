@@ -1,16 +1,29 @@
 <h1>Cart</h1>
- <h3>All Items</h3>
-    <div class="row">
+  <div class="table-responsive">
+    <table class="table table-bordered">
       {{# each items }}
-        <ul>
-          <li><h4>{{ this.product.name }}</h4></li>
-
-          <li><img {{ bind-attr src=this.product.avatar }} class='thumbnail'></li>
-          <li><h4>{{ quantity }}</h4></li>
-          <button {{ action "more" this }}>+</button>
-          <button {{ action "less" this }}>-</button>
-          <p>Price: ${{ format-price this.product.price }} </p>
-          <p>Subtotal: ${{ subtotal quantity product.price}} </p>
-        </ul>
-    {{/ each}}
-
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th></th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img {{ bind-attr src=product.avatar }} class='thumbnail'></td>
+            <td>  {{ this.product.name }} </td>
+            <td>${{ format-price this.product.price }}</td>
+            <td>
+              {{ quantity }}
+              <button {{ action "more" this }}>+</button>
+              <button {{ action "less" this }}>-</button>
+            </td>
+            <td>${{ subtotal quantity product.price}}</td>
+          </tr>
+          {{/ each }}
+        </tbody>
+      </table>
+    </div>
