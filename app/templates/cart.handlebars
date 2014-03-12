@@ -1,7 +1,6 @@
 <h1>Cart</h1>
   <div class="table-responsive">
     <table class="table table-bordered">
-      {{# each items }}
         <thead>
           <tr>
             <th>Product</th>
@@ -11,6 +10,7 @@
             <th>Subtotal</th>
           </tr>
         </thead>
+          {{# each items }}
         <tbody>
           <tr>
             <td><img {{ bind-attr src=product.avatar }} class='thumbnail'></td>
@@ -24,7 +24,14 @@
             <td>${{ format-price subtotal }}</td>
           </tr>
            {{/ each }}
-          Total: ${{ format-price total }}
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>${{ format-price this.total }}</td>
+          </tr>
+
 
         </tbody>
       </table>
