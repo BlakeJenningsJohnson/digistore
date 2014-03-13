@@ -7,3 +7,10 @@ App.Order = DS.Model.extend({
   zip:           DS.attr("string"),
   exp_date:      DS.attr("string")
 });
+
+App.Order.FIXTURES = [
+  {
+    id: 1,
+    cart: 1
+  }
+];
