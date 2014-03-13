@@ -1,1 +1,34 @@
-<h1>I"M AN ORDER</h1>
+<h1>ORDER</h1>
+
+<form role="form" {{ action 'add' target="newItem" on="submit"}}>
+    <div class="form-group">
+      <label>Name: </label>
+      {{ input type='text' value=customerName }}
+    </div>
+    <div class="form-group">
+      <label>Email: </label>
+      {{ input type='text' value=email }}
+    </div>
+    <div class="form-group">
+      <label>Credit Card: </label>
+      {{ input type='text' value=creditCardNumber }}
+    </div>
+    <div class="form-group">
+      <label>CVV: </label>
+      {{ input type='text' value=cvv }}
+    </div>
+    <div class="form-group">
+      <label>Expiration Date: </label>
+      {{ input type='text' value=expDate }}
+    </div>
+    <div class="form-group">
+      <label>Zip Code: </label>
+      {{ input type='text' value=zip }}
+    </div>
+    <div class="form-group">
+      {{input type="submit" class="btn" }}
+    </div>
+</form>
+
+
+

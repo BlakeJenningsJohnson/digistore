@@ -15,8 +15,8 @@
         <tbody>
           <tr>
             <td><img {{ bind-attr src=product.avatar }} class='thumbnail'></td>
-            <td>  {{ this.product.name }} </td>
-            <td>${{ format-price this.product.price }}</td>
+            <td> {{ this.name }} </td>
+            <td>${{ format-price this.currentPrice }}</td>
             <td>
               {{ quantity }}
               <button {{ action "more" this }}>+</button>
@@ -30,11 +30,12 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>Total:</td>
-            <td>${{ format-price this.total }}</td>
+            <td></td>
+
+            <td>Total:${{ format-price this.total }}</td>
           </tr>
         </tbody>
       </table>
 
-      <button {{ action "checkout" this }}>Checkout</button>
+      {{#link-to 'order'}}Checkout{{/link-to}}
     </div>
