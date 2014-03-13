@@ -4,9 +4,11 @@ App.OrderRoute = Ember.Route.extend({
   },
   actions: {
     submitBilling: function (order) {
-      var theCart = this.store.find('cart', 1)
-      order.setProperties({ status:"pending", cart: theCart });
+      var theCart = this.store.getById('cart', 1)
+      order.setProperties({ status: "pending", cart: theCart });
       order.save();
+      debugger
+      this.transitionTo('confirmation');
     },
   }
 });
