@@ -14,7 +14,7 @@
           {{# each items }}
         <tbody>
           <tr>
-            <td><img {{ bind-attr src=product.avatar }} class='thumbnail'></td>
+            <td>{{#link-to 'product' this.product }}<img {{ bind-attr src=product.avatar }} class='thumbnail'></td>{{/link-to}}
             <td> {{ this.product.name }} </td>
             <td>${{ format-price this.currentPrice }}</td>
             <td>
