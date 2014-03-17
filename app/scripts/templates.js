@@ -207,7 +207,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "productForm", options) : helperMissing.call(depth0, "partial", "productForm", options))));
-  data.buffer.push("\n<button ");
+  data.buffer.push("\n\n<button ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "saveProduct", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
   data.buffer.push(">Save!</button>");
   return buffer;
