@@ -9,6 +9,7 @@
           <img {{ bind-attr src=avatar }} class='thumbnail' />
           {{/ link-to }}
           <strong><p>${{ price }}</p></strong>
+          <button {{ action "productDelete" this }}>Delete Product</button>
         </div>
       {{/ each}}
   <div class='col-lg-10'>

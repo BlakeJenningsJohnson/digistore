@@ -1,8 +1,9 @@
 App.AdminRoute = Ember.Route.extend({
   actions: {
-    deleteProduct: function (product) {
+    productDelete: function (product) {
       product.deleteRecord();
       product.save();
+      this.transitionTo('admin');
     }
   },
   model: function () {

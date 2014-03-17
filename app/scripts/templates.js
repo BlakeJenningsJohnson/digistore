@@ -18,7 +18,9 @@ function program3(depth0,data) {
   data.buffer.push("\n          <strong><p>$");
   stack1 = helpers._triageMustache.call(depth0, "price", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</p></strong>\n        </div>\n      ");
+  data.buffer.push("</p></strong>\n          <button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "productDelete", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
+  data.buffer.push(">Delete Product</button>\n        </div>\n      ");
   return buffer;
   }
 function program4(depth0,data) {
@@ -216,7 +218,9 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "productForm", options) : helperMissing.call(depth0, "partial", "productForm", options))));
-  data.buffer.push("\n\n<button ");
+  data.buffer.push("\n<button ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "productDelete", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
+  data.buffer.push(">Delete Product</button>\n<button ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "saveProduct", "", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
   data.buffer.push(">Save!</button>");
   return buffer;

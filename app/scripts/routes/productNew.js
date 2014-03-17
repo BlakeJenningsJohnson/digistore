@@ -5,16 +5,16 @@ App.ProductNewRoute = Ember.Route.extend ({
   actions: {
     createProduct: function (attributes) {
       newProduct = this.store.createRecord("product", attributes);
-    var self = this
-    newProduct.save().then(
-      function () {
-        self.transitionTo("admin");
-      },
-      function (error) {
-        alert(error.responseText);
-        newProduct.deleteRecord();
-        }
-        );
+      var self = this
+      newProduct.save().then(
+        function () {
+          self.transitionTo("admin");
+        },
+        function (error) {
+          alert(error.responseText);
+          newProduct.deleteRecord();
+          }
+          );
     }
   }
 });
