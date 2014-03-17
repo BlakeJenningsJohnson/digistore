@@ -1,6 +1,6 @@
 App.CartRoute = Ember.Route.extend({
   model: function (params) {
-    return this.store.find("cart", 1);
+    return this.modelFor('application'); //('cart', localStorage.cartId)
   },
   actions: {
     more: function (item) {

@@ -1,0 +1,16 @@
+<h1>Products Directory</h1>
+ <h3>All Products</h3>
+    <div class="row">
+      {{# each }}
+      <div class="col-lg-4">
+        {{# link-to "productEdit" this }}
+          <h4>{{ name }}</h4>
+          <img {{ bind-attr src=avatar }} class='thumbnail' />
+          {{/ link-to }}
+          <strong><p>${{ price }}</p></strong>
+        </div>
+      {{/ each}}
+  <div class='col-lg-10'>
+    {{ outlet }}
+  </div>
+</div>

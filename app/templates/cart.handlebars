@@ -15,7 +15,7 @@
         <tbody>
           <tr>
             <td><img {{ bind-attr src=product.avatar }} class='thumbnail'></td>
-            <td> {{ this.name }} </td>
+            <td> {{ this.product.name }} </td>
             <td>${{ format-price this.currentPrice }}</td>
             <td>
               {{ quantity }}
@@ -25,13 +25,14 @@
             <td>${{ format-price subtotal }}</td>
             <td><button {{ action "deleteItem" this }}>Remove</button>
           </tr>
+          <tr></tr>
            {{/ each }}
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-
+            <td></td>
             <td>Total:${{ format-price this.total }}</td>
           </tr>
         </tbody>

@@ -1,7 +1,8 @@
 App.ProductsRoute = Ember.Route.extend({
   actions: {
     addToCart: function (product) {
-      var theCart = this.controllerFor('cart').get('model')
+      // var theCart = this.controllerFor('cart').get('model')
+      var theCart = this.modelFor('application')
       var newItem = this.store.createRecord('item', { 
                       cart: theCart, 
                       product: product, 
@@ -18,8 +19,8 @@ App.ProductsRoute = Ember.Route.extend({
   model: function () {
     return this.store.find("product");
   },
-  setupController: function(controller, model) {
-    this.controllerFor('cart').set('model', this.store.find('cart', 1))
-    controller.set('model', model)
-  }
+  // setupController: function(controller, model) {
+  //   this.controllerFor('cart').set('model', this.store.find('cart', 1))
+  //   controller.set('model', model)
+  // }
 });

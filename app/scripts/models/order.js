@@ -10,7 +10,6 @@ App.Order = DS.Model.extend({
 
 App.Order.FIXTURES = [
   {
-    id: 1,
-    cart: 1
+    id: 1
   }
 ];

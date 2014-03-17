@@ -1,7 +1,7 @@
 App.OrderRoute = Ember.Route.extend({
   actions: {
     submitBilling: function (attributes) {
-      var theCart = this.store.find('cart', 1)
+      // var theCart = this.store.find('cart', 1)
       var order = this.store.createRecord('order', attributes) /*attach to cart?*/
       var self = this
       // order.setProperties({ status: "pending", cart: theCart });
