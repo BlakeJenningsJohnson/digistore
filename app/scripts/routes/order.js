@@ -1,15 +1,22 @@
 App.OrderRoute = Ember.Route.extend({
-  model: function () {
-    return this.store.createRecord("order")
-  },
   actions: {
-    submitBilling: function (order) {
-      var theCart = this.store.getById('cart', 1)
-      order.setProperties({ status: "pending", cart: theCart });
-      order.save();
-      debugger
-      this.transitionTo('confirmation');
-    },
+    submitBilling: function (attributes) {
+      var theCart = this.store.find('cart', 1)
+      var order = this.store.createRecord('order', attributes) /*attach to cart?*/
+      var self = this
+      // order.setProperties({ status: "pending", cart: theCart });
+      order.save().then(
+        function (order) {
+        self.transitionTo('confirmation', order); //order.get('id')?
+      }, 
+      function (error) {
+        order.deleteRecord()
+        alert(error.responseText)
+      })
+    }
+  },
+  model: function () {
+    return {};
   }
 });
 
