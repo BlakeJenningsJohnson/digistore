@@ -14,8 +14,8 @@ App.ProductNewRoute = Ember.Route.extend ({
           alert(error.responseText);
           newProduct.deleteRecord();
           }
-          );
-    }
+        );
+        }
   }
 });
     

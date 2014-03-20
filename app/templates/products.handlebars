@@ -7,7 +7,7 @@
           <h4>{{ name }}</h4>
           <img {{ bind-attr src=avatar }} class='thumbnail' />
           {{/ link-to }}
-          <strong><p>${{ price }}</p></strong>
+          <strong><p>${{ format-price price }}</p></strong>
           <button {{action "addToCart" this }}>Add To Cart</button>
         </div>
       {{/ each}}
@@ -15,3 +15,4 @@
     {{ outlet }}
   </div>
 </div>
+

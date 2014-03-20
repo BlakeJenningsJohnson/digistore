@@ -1,10 +1,21 @@
-Confirmed! 
+<h2>Confirmation Page</h2>
 
-<table>
-  <thead>
-    <th>Name:</th>
+<h3>Thank you, {{ customerName }}, for your purchase! </h3>
+<h4>Please print this page for your records:</h4>
 
-  </thead>
-  <td>{{ customerName }}</td>
+<ul>
+  <li>Name: {{ customerName }}</li>
+  <li>Email: {{ email }}</li>
+</ul>
 
-</table>
+<hr>
+<h3>Order Information:</h3>
+
+<ul>
+  <li>{{ this.cart.total }}</li>
+  <li>{{# each this.cart.items }}</li>
+  <li>{{ this.product.name }}</li>
+  {{ this.quantity }}
+
+  {{/ each }}
+</ul>
