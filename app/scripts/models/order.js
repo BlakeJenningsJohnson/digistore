@@ -8,9 +8,3 @@ App.Order = DS.Model.extend({
   expDate:          DS.attr("string"),
   cart:             DS.belongsTo("cart", {async: true})
 });
-
-// App.Order.FIXTURES = [
-//   {
-//     id: 1
-//   }
-// ];

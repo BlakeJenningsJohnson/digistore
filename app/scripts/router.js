@@ -10,5 +10,6 @@ App.Router.map(function(){
     this.resource('productEdit', { path: ":product_id" });
     this.resource('productNew', {path: 'products/new'});
   }); 
+  this.resource('orderEdit', { path: 'admin/orders'});
 });
 
