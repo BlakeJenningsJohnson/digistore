@@ -1,21 +1,23 @@
 App.OrderRoute = Ember.Route.extend({
   actions: {
     submitBilling: function (attributes) {
-      var order = this.store.createRecord('order', attributes);
-      var cart = this.modelFor('application')
-      order.set('cart', cart) 
       var self = this
-      order.save().then(
+      var order = this.store.createRecord('order', attributes);
+      var cart = this.controllerFor('application').get('cart').then(function (cart) {
+        order.set('cart', cart),
+        order.set('status', 'paid') 
+        order.save().then(
         function (order) {
-        self.transitionTo('confirmation', order).then(function () {
-          var theCart = self.store.createRecord('cart');
-            theCart.save().then(function (cart) {
-              localStorage.cartId = theCart.id;
-            });
+          var cart = self.store.createRecord('cart');
+            cart.save().then(function (cart) {
+              localStorage.cartId = cart.get('id');
+              self.controllerFor('application').set('cart', self.store.find("cart", localStorage.cartId))
           });
-        },
-      function (error) {
-        alert(error.responseText)
+          self.transitionTo('confirmation', order);
+        });
+      // function (error) {
+      //   alert(error.responseText)
+      // }
       })
     }
   },

@@ -1,10 +1,14 @@
 App.ProductsRoute = Ember.Route.extend({
+  model: function () {
+    return this.store.find("product");
+  },
+
   actions: {
     addToCart: function (product) {
       // var theCart = this.controllerFor('cart').get('model')
-      var theCart = this.modelFor('application')
       var store = this.store
-      theCart.get('items').then(function (items) {
+      this.controllerFor('application').get('cart').then(function (cart) {
+      cart.get('items').then(function (items) {
        return items.find(function (item) {
           return item.get('product').get('id') === product.get('id')
         })
@@ -14,18 +18,16 @@ App.ProductsRoute = Ember.Route.extend({
           item.save();
         } else {
           var newItem = store.createRecord('item', {
-            cart: theCart, 
+            cart: cart, 
             product: product, 
             quantity: 1, 
             currentPrice: product.get('price')
           });
-          theCart.get('items').pushObject(newItem);
+          cart.get('items').pushObject(newItem);
           newItem.save();
         }
-      });      
-    },
-  },
-  model: function () {
-    return this.store.find("product");
-  },
+      })
+    })      
+  }
+}
 });
