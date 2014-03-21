@@ -7,9 +7,12 @@ App.Router.map(function(){
     this.resource('product', { path: ':product_id' });
   });
   this.resource('admin', function () {
-    this.resource('productEdit', { path: ":product_id" });
-    this.resource('productNew', {path: 'products/new'});
+    this.resource('adminProducts', { path: "products"}, function () {
+      this.resource('productEdit', { path: ":product_id" });
+      this.resource('productNew', {path: 'new'});
+    })
+    this.resource('manageOrders');
+    this.resource('orderEdit', { path: 'admin/orders'});
   }); 
-  this.resource('orderEdit', { path: 'admin/orders'});
 });
 
