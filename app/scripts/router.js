@@ -12,7 +12,7 @@ App.Router.map(function(){
       this.resource('productNew', {path: 'new'});
     })
     this.resource('manageOrders');
-    this.resource('orderEdit', { path: 'admin/orders'});
+    this.resource('orderEdit', { path: 'orders'});
   }); 
 });
 
