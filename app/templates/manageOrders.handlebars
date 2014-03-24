@@ -1,1 +1,17 @@
-{{debugger}}
+<br>
+<ul class='list-unstyled'>
+  {{# each }}
+    <li>
+      
+      {{# link-to "confirmation" this }}Order #{{ id }}{{/ link-to}}<br>
+      Name: {{ name }}<br>
+      Status: {{ status }} <br>
+      <label for="status">Change Status:</label>
+      {{ input type="text" value=status class="form" }}
+      <button {{ action 'updateOrder' this }} class="btn btn-success">Change!</button><br>
+      <button {{ action 'deleteOrder' this }} class="btn btn-danger">Cancel!</button>
+      <hr>
+      
+    </li>
+  {{/ each }}
+</ul>
